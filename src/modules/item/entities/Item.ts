@@ -55,4 +55,8 @@ export class Item {
     get quantity(): number {
         return this._quantity;
     }
+
+    get validity(): Date {
+        return this._validity;
+    }
 }
