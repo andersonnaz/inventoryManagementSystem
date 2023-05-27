@@ -32,4 +32,8 @@ export class Customer {
         }
         return true;
     }
+
+    get name(): string {
+        return this._name;
+    }
 }
