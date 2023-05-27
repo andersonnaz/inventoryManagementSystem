@@ -30,4 +30,8 @@ export class Transaction {
     get items(): Item[] {
         return this._items;
     }
+
+    get entity(): Customer | Supplier {
+        return this._entity;
+    }
 }
