@@ -10,4 +10,9 @@ export class Transaction {
         this._items = items;
         this._entity = entity;
     }
+
+    public static create(items: Item[], entity: Customer | Supplier): Transaction {
+        const transaction = new Transaction(items, entity);
+        return transaction;
+    }
 }
