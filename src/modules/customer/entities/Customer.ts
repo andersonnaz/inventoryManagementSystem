@@ -40,4 +40,8 @@ export class Customer {
     get cpf(): string {
         return this._cpf;
     }
+
+    get address(): string {
+        return this._address;
+    }
 }
