@@ -43,4 +43,8 @@ export class Item {
     get category(): string {
         return this._category;
     }
+
+    get supplier(): string {
+        return this._supplier;
+    }
 }
