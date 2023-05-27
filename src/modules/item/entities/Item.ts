@@ -59,4 +59,8 @@ export class Item {
     get validity(): Date {
         return this._validity;
     }
+
+    set price(price: number) {
+        this._price = price;
+    }
 }
