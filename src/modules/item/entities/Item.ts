@@ -40,4 +40,7 @@ export class Item {
         return this._name;
     }
 
+    get category(): string {
+        return this._category;
+    }
 }
