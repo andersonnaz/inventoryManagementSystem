@@ -33,6 +33,16 @@ class ItemInMemoryRepository implements ItemRepository {
         return item;
     }
 
+    delete(id: string) {
+        const items = this.list();
+        const filteredItems = items.filter((item) => {
+            return item.id !== id;
+        })
+        if(filteredItems.length === 0){
+            throw new Error('item not found!');
+        }
+    }
+
 }
 
 export default new ItemInMemoryRepository();
