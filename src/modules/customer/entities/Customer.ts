@@ -36,4 +36,8 @@ export class Customer {
     get name(): string {
         return this._name;
     }
+
+    get cpf(): string {
+        return this._cpf;
+    }
 }
