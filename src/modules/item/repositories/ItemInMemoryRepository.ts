@@ -8,6 +8,10 @@ class ItemInMemoryRepository implements ItemRepository {
         this._database.push(item);
     }
 
+    list(): Item[] {
+        return this._database;
+    }
+
 }
 
 export default new ItemInMemoryRepository();
