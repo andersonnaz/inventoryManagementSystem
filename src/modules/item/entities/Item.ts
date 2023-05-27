@@ -14,7 +14,21 @@ export class Item {
     };
 
     public static create(name: string, category: string, supplier: string): Item {
+        this.validate(name, category, supplier);
         const item = new Item(name, category, supplier);
         return item;
+    }
+
+    private static validate(name: string, category: string, supplier: string): boolean {
+        if(!name){
+            throw new Error('name invalid!');
+        }
+        if(!category){
+            throw new Error('category invalid!');
+        }
+        if(!supplier){
+            throw new Error('supplier invalid!');
+        }
+        return true;
     }
 }
