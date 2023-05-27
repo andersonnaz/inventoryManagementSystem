@@ -32,4 +32,8 @@ export class Supplier {
         }
         return true;
     }
+
+    get name(): string {
+        return this._name;
+    }
 }
