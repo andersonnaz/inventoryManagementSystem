@@ -12,4 +12,9 @@ export class Item {
         this._category = category;
         this._supplier = supplier;
     };
+
+    public static create(name: string, category: string, supplier: string): Item {
+        const item = new Item(name, category, supplier);
+        return item;
+    }
 }
