@@ -36,4 +36,8 @@ export class Item {
         return this._id;
     }
 
+    get name(): string {
+        return this._name;
+    }
+
 }
