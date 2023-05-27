@@ -10,4 +10,9 @@ export class Customer {
         this._address = address;
         this._phone = phone;
     }
+
+    public static create(name: string, cpf: string, address: string, phone: string): Customer {
+        const customer = new Customer(name, cpf, address, phone);
+        return customer;
+    }
 }
