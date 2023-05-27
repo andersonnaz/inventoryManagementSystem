@@ -38,4 +38,8 @@ export class Transaction {
     set items(items: Item[]) {
         this._items = items;
     }
+
+    set entity(entity: Customer | Supplier) {
+        this._entity = entity;
+    }
 }
