@@ -31,4 +31,9 @@ export class Item {
         }
         return true;
     }
+
+    get id(): string {
+        return this._id;
+    }
+
 }
