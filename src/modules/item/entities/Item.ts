@@ -67,4 +67,8 @@ export class Item {
     set quantity(quantity: number) {
         this._quantity = quantity;
     }
+
+    set validity(date: Date) {
+        this._validity = date;
+    }
 }
