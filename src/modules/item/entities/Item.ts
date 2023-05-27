@@ -51,4 +51,8 @@ export class Item {
     get price(): number {
         return this._price;
     }
+
+    get quantity(): number {
+        return this._quantity;
+    }
 }
