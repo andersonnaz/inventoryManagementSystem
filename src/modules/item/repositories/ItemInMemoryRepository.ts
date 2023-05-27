@@ -12,6 +12,16 @@ class ItemInMemoryRepository implements ItemRepository {
         return this._database;
     }
 
+    findOne(param: string): Item | undefined {
+        const items = this._database;
+        const item = items.find((item) => {
+            if(item.id === param){ return item };
+            if(item.name === param){ return item };
+        })
+        if(!item){ throw new Error('Item not found!')};
+        return item;
+    }
+
 }
 
 export default new ItemInMemoryRepository();
