@@ -40,4 +40,8 @@ export class Supplier {
     get cnpj(): string {
         return this._cnpj;
     }
+
+    get address(): string {
+        return this._address;
+    }
 }
