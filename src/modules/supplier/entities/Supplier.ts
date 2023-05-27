@@ -10,4 +10,9 @@ export class Supplier {
         this._address = address;
         this._phone = phone;
     }
+
+    public static create(name: string, cnpj: string, address: string, phone: string): Supplier {
+        const supplier = new Supplier(name, cnpj, address, phone);
+        return supplier;
+    }
 }
