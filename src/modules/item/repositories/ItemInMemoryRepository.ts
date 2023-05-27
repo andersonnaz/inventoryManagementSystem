@@ -1,6 +1,8 @@
 import { Item } from "../entities/Item";
 import { ItemRepository } from "./ItemRepository";
 
+type IUpdateItem = Partial<Item>;
+
 class ItemInMemoryRepository implements ItemRepository {
     private _database: Item[] = [];
 
@@ -19,6 +21,15 @@ class ItemInMemoryRepository implements ItemRepository {
             if(item.name === param){ return item };
         })
         if(!item){ throw new Error('Item not found!')};
+        return item;
+    }
+
+    update(id: string, updateItem: IUpdateItem): Item {
+        const item = this.findOne(id);
+        if(!item){
+            throw new Error('item not found!');
+        }
+        Object.assign(item, updateItem);
         return item;
     }
 
