@@ -52,6 +52,14 @@ class ItemInMemoryRepository implements ItemRepository {
         return filteredItems;
     }
 
+    listByCategory(category: string): Item[] {
+        const items = this.list();
+        const filteredItems = items.filter((item) => {
+            return item.category === category;
+        })
+        return filteredItems;
+    }
+
 }
 
 export default new ItemInMemoryRepository();
