@@ -52,4 +52,8 @@ export class Customer {
     set address(newAddress: string) {
         this._address = newAddress;
     }
+
+    set phone(newPhone: string) {
+        this._phone = newPhone;
+    }
 }
