@@ -34,4 +34,8 @@ export class Transaction {
     get entity(): Customer | Supplier {
         return this._entity;
     }
+
+    set items(items: Item[]) {
+        this._items = items;
+    }
 }
