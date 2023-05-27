@@ -12,7 +12,24 @@ export class Customer {
     }
 
     public static create(name: string, cpf: string, address: string, phone: string): Customer {
+        this.validate(name, cpf, address, phone);
         const customer = new Customer(name, cpf, address, phone);
         return customer;
+    }
+
+    private static validate(name: string, cpf: string, address: string, phone: string): boolean {
+        if(!name){
+            throw new Error('name invalid!');
+        }
+        if(!cpf){
+            throw new Error('cpf invalid!');
+        }
+        if(!address){
+            throw new Error('address invalid');
+        }
+        if(!phone){
+            throw new Error('phone invalid');
+        }
+        return true;
     }
 }
