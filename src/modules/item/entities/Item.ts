@@ -63,4 +63,8 @@ export class Item {
     set price(price: number) {
         this._price = price;
     }
+
+    set quantity(quantity: number) {
+        this._quantity = quantity;
+    }
 }
