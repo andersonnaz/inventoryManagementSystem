@@ -1,3 +1,4 @@
+import { Supplier } from "../../supplier/entities/Supplier";
 import { Item } from "../entities/Item";
 import { ItemRepository } from "./ItemRepository";
 
@@ -41,6 +42,14 @@ class ItemInMemoryRepository implements ItemRepository {
         if(filteredItems.length === 0){
             throw new Error('item not found!');
         }
+    }
+
+    listBySupplier(): Item[] {
+        const items = this.list();
+        const filteredItems = items.filter((item) => {
+            return item instanceof Supplier;
+        })
+        return filteredItems;
     }
 
 }
