@@ -7,7 +7,7 @@ export class Item {
     private _quantity: number;
     private _validity: Date;
 
-    constructor(name: string, category: string, supplier: string){
+    private constructor(name: string, category: string, supplier: string){
         this._name = name;
         this._category = category;
         this._supplier = supplier;
