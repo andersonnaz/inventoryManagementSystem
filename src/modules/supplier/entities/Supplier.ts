@@ -48,4 +48,8 @@ export class Supplier {
     get phone(): string {
         return this._phone;
     }
+
+    set address(newAddress: string) {
+        this._address = newAddress;
+    }
 }
