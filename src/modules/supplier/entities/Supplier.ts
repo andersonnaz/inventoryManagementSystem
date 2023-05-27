@@ -36,4 +36,8 @@ export class Supplier {
     get name(): string {
         return this._name;
     }
+
+    get cnpj(): string {
+        return this._cnpj;
+    }
 }
