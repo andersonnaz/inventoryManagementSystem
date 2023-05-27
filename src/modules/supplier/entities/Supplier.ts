@@ -44,4 +44,8 @@ export class Supplier {
     get address(): string {
         return this._address;
     }
+
+    get phone(): string {
+        return this._phone;
+    }
 }
