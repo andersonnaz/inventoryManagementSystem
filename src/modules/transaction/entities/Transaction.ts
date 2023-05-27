@@ -26,4 +26,8 @@ export class Transaction {
         }
         return true;
     }
+
+    get items(): Item[] {
+        return this._items;
+    }
 }
