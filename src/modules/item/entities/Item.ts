@@ -47,4 +47,8 @@ export class Item {
     get supplier(): string {
         return this._supplier;
     }
+
+    get price(): number {
+        return this._price;
+    }
 }
