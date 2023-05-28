@@ -35,6 +35,17 @@ class SupplierInMemoryRepository implements Repository<Supplier>{
         return supplier;
     }
 
+    delete(cnpj: string) {
+        const suppliers = this.list();
+        const filteredSuppliers = suppliers.filter((supplier) => {
+            return supplier.cnpj !== cnpj;
+        })
+        if(filteredSuppliers.length === 0) {
+            throw new Error('supplier not found!');
+        }
+        this._database = filteredSuppliers;
+    }
+
 }
 
 export default new SupplierInMemoryRepository();
