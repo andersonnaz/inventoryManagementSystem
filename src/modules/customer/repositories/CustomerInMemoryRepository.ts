@@ -33,6 +33,17 @@ class CustomerInMemoryRepository implements Repository<Customer> {
         return customer;
     }
 
+    delete(cpf: string) {
+        const customers = this.list();
+        const filteredCustomers = customers.filter((customer) => {
+            return customer.cpf !== cpf;
+        })
+        if(customers.length === 0){
+            throw new Error('customer not found!');
+        }
+        this._database = filteredCustomers;
+    }
+
 }
 
 export default new CustomerInMemoryRepository();
