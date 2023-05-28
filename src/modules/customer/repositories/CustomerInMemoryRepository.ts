@@ -12,6 +12,17 @@ class CustomerInMemoryRepository implements Repository<Customer> {
         return this._database;
     }
 
+    findOne(param: string): Customer | undefined {
+        const customer = this._database.find((customer) => {
+            if(customer.cpf === param){return customer};
+            if(customer.name === param){return customer};
+        })
+        if(!customer){
+            throw new Error('customer not found');
+        }
+        return customer;
+    }
+
 }
 
 export default new CustomerInMemoryRepository();
