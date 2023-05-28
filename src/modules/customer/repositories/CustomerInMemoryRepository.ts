@@ -1,6 +1,7 @@
 import { Repository } from "../../../shared/database/Repository";
 import { Customer } from "../entities/Customer";
 
+type IUpdateCustomer = Partial<Customer>;
 class CustomerInMemoryRepository implements Repository<Customer> {
     private _database: Customer[] = [];
 
@@ -20,6 +21,15 @@ class CustomerInMemoryRepository implements Repository<Customer> {
         if(!customer){
             throw new Error('customer not found');
         }
+        return customer;
+    }
+
+    update(cpf: string, updateCustomer: IUpdateCustomer): Customer {
+        const customer = this.findOne(cpf);
+        if(!customer){
+            throw new Error('customer not found!');
+        }
+        Object.assign(customer, updateCustomer);
         return customer;
     }
 
