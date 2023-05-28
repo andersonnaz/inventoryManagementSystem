@@ -7,6 +7,10 @@ class TransactionInMemoryRepository implements TransactionRepository {
     save(transaction: Transaction) {
         this._database.push(transaction);
     }
+
+    list(): Transaction[] {
+        return this._database;
+    }
 }
 
 export default new TransactionInMemoryRepository();
