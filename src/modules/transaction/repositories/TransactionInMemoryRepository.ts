@@ -35,6 +35,18 @@ class TransactionInMemoryRepository implements TransactionRepository {
         Object.assign(transaction, updateTransaction);
         return transaction;
     }
+
+    delete(id: string){
+        const transactions = this.list();
+        const filteredTransactions = transactions.filter((transaction) => {
+            if(transaction.entity instanceof Customer){return transaction.entity.cpf !== id};
+            if(transaction.entity instanceof Supplier){return transaction.entity.cnpj !== id};
+        })
+        if(filteredTransactions.length === 0) {
+            throw new Error('transaction not found!');
+        }
+        this._database = filteredTransactions;
+    }
 }
 
 export default new TransactionInMemoryRepository();
