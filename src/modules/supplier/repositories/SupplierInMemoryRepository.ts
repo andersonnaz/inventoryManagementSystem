@@ -7,6 +7,10 @@ class SupplierInMemoryRepository implements Repository<Supplier>{
     save(supplier: Supplier) {
         this._database.push(supplier);
     }
+
+    list(): Supplier[] {
+        return this._database;
+    }
 }
 
 export default new SupplierInMemoryRepository();
