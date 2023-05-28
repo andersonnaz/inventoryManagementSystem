@@ -1,6 +1,8 @@
 import { Repository } from "../../../shared/database/Repository";
 import { Supplier } from "../entities/Supplier";
 
+type IUpdateSupplier = Partial<Supplier>;
+
 class SupplierInMemoryRepository implements Repository<Supplier>{
     private _database: Supplier[] = [];
 
@@ -23,6 +25,16 @@ class SupplierInMemoryRepository implements Repository<Supplier>{
         }
         return supplier;
     }
+
+    update(cnpj: string, updateSupplier: IUpdateSupplier): Supplier {
+        const supplier = this.findOne(cnpj);
+        if(!supplier){
+            throw new Error('supplier not found');
+        }
+        Object.assign(supplier, updateSupplier);
+        return supplier;
+    }
+
 }
 
 export default new SupplierInMemoryRepository();
