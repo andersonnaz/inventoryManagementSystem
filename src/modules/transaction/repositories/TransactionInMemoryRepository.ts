@@ -58,6 +58,17 @@ class TransactionInMemoryRepository implements TransactionRepository {
         }
         return filteredCustomers;
     }
+
+    listBySupplier(): Transaction[] {
+        const transactions = this.list();
+        const filteredSuppliers = transactions.filter((transaction) => {
+            return transaction.entity instanceof Supplier;
+        })
+        if(filteredSuppliers.length === 0) {
+            throw new Error('Suppliers not found!');
+        }
+        return filteredSuppliers;
+    }
 }
 
 export default new TransactionInMemoryRepository();
