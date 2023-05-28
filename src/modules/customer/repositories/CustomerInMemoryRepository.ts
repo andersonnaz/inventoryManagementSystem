@@ -8,6 +8,10 @@ class CustomerInMemoryRepository implements Repository<Customer> {
         this._database.push(customer);
     }
 
+    list(): Customer[] {
+        return this._database;
+    }
+
 }
 
 export default new CustomerInMemoryRepository();
