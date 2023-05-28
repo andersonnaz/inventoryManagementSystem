@@ -3,6 +3,8 @@ import { Supplier } from "../../supplier/entities/Supplier";
 import { Transaction } from "../entities/Transaction";
 import { TransactionRepository } from "./TransactionRepository";
 
+type IUpdateTransaction = Partial<Transaction>;
+
 class TransactionInMemoryRepository implements TransactionRepository {
     private _database: Transaction[] = [];
 
@@ -22,6 +24,15 @@ class TransactionInMemoryRepository implements TransactionRepository {
         if(!transaction){
             throw new Error('transaction not found!');
         }
+        return transaction;
+    }
+
+    update(id: string, updateTransaction: IUpdateTransaction): Transaction {
+        const transaction = this.findOne(id);
+        if(!transaction){
+            throw new Error('transaction not found!');
+        }
+        Object.assign(transaction, updateTransaction);
         return transaction;
     }
 }
