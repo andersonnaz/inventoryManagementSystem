@@ -42,6 +42,7 @@ class ItemInMemoryRepository implements ItemRepository {
         if(filteredItems.length === 0){
             throw new Error('item not found!');
         }
+        this._database = filteredItems;
     }
 
     listBySupplier(): Item[] {
