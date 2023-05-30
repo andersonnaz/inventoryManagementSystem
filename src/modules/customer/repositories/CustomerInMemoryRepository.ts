@@ -19,7 +19,7 @@ class CustomerInMemoryRepository implements Repository<Customer> {
             if(customer.name === param){return customer};
         })
         if(!customer){
-            throw new Error('customer not found');
+            return undefined;
         }
         return customer;
     }
