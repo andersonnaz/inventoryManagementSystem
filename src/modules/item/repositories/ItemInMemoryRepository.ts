@@ -21,7 +21,9 @@ class ItemInMemoryRepository implements ItemRepository {
             if(item.id === param){ return item };
             if(item.name === param){ return item };
         })
-        if(!item){ throw new Error('Item not found!')};
+        if(!item){ 
+            return undefined; 
+        };
         return item;
     }
 
