@@ -21,7 +21,7 @@ class SupplierInMemoryRepository implements Repository<Supplier>{
             if(supplier.name === param){return supplier};
         });
         if(!supplier){
-            throw new Error('supplier not found!');
+            return undefined;
         }
         return supplier;
     }
