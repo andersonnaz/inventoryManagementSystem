@@ -22,7 +22,7 @@ class TransactionInMemoryRepository implements TransactionRepository {
             if(transaction.entity instanceof Supplier){return transaction.entity.cnpj === param};
         })
         if(!transaction){
-            throw new Error('transaction not found!');
+            return undefined;
         }
         return transaction;
     }
