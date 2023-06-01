@@ -12,12 +12,11 @@ export class Transaction {
     }
 
     public static create(items: Item[], entity: Customer | Supplier): Transaction {
-        this.validate(items, entity)
         const transaction = new Transaction(items, entity);
         return transaction;
     }
 
-    private static validate(items: Item[], entity: Customer | Supplier): boolean {
+    public static validate(items: Item[], entity: Customer | Supplier): boolean {
         if(items.length === 0){
             throw new Error('items empty');
         }
