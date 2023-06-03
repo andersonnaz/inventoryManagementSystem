@@ -47,10 +47,10 @@ class ItemInMemoryRepository implements ItemRepository {
         this._database = filteredItems;
     }
 
-    listBySupplier(): Item[] {
+    listBySupplier(supplier: string): Item[] {
         const items = this.list();
         const filteredItems = items.filter((item) => {
-            return item instanceof Supplier;
+            return item.supplier === supplier;
         })
         return filteredItems;
     }
