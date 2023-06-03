@@ -8,7 +8,7 @@ export class UpdateTransactionService {
         this._transactionRepository = transactionRepository;
     }
 
-    async execute(id: string, updateTransaction: Transaction): Promise<Transaction>{
+    async execute(id: string, updateTransaction: Partial<Transaction>): Promise<Transaction>{
         const transaction = await this._transactionRepository.update(id, updateTransaction);
         return transaction;
     }
