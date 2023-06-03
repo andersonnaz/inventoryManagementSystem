@@ -2,7 +2,7 @@ import CustomerInMemoryRepository from "../repositories/CustomerInMemoryReposito
 import { FindCustomerService } from "../services";
 import { Request, Response } from "express";
 
-export class FindCustomerRepository {
+export class FindCustomerController {
     private readonly _findCustomerService: FindCustomerService;
 
     constructor(){
