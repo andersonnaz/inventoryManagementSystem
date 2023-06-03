@@ -18,6 +18,6 @@ customersRouter.get('/', listCustomerController.list);
 customersRouter.post('/', createCustomerController.create);
 customersRouter.delete('/', deleteCustomerController.delete);
 customersRouter.get('/:id', findCustomerController.find);
-customersRouter.put('./:id', updateCustomerController.update);
+customersRouter.put('/:id', updateCustomerController.update);
 
 export default customersRouter;
