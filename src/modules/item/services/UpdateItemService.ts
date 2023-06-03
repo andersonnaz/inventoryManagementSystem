@@ -8,7 +8,7 @@ export class UpdateItemService {
         this._itemRepository = itemRepository;
     };
 
-    async execute(param: string, updateItem: Item): Promise<Item> {
+    async execute(param: string, updateItem: Partial<Item>): Promise<Item> {
         const item = await this._itemRepository.update(param, updateItem);
         return item;
     }
