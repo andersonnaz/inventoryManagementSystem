@@ -8,7 +8,7 @@ export class ListBySupplierService {
         this._itemRepository = itemRepository;
     }
 
-    async execute(): Promise<Item[]> {
-        return this._itemRepository.listBySupplier();
+    async execute(supplier: string): Promise<Item[]> {
+        return this._itemRepository.listBySupplier(supplier);
     }
 }
