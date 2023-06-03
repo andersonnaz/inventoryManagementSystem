@@ -8,7 +8,7 @@ export class UpdateSupplierService {
         this._supplierRepository = supplierRepository;
     }
 
-    async execute(cnpj: string, updateSupplier: Supplier): Promise<Supplier> {
+    async execute(cnpj: string, updateSupplier: Partial<Supplier>): Promise<Supplier> {
         const supplier = await this._supplierRepository.update(cnpj, updateSupplier);
         return supplier;
     }
