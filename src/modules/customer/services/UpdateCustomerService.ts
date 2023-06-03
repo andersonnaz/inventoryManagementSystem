@@ -8,7 +8,7 @@ export class UpdateCustomerService {
         this._customerRepository = customerRepository;
     }
 
-    async execute(cpf: string, updateCustomer: Customer): Promise<Customer> {
+    async execute(cpf: string, updateCustomer: Partial<Customer>): Promise<Customer> {
         const customer = await this._customerRepository.update(cpf, updateCustomer);
         return customer;
     }
