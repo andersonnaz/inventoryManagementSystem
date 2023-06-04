@@ -17,7 +17,7 @@ export class UpdateCustomerController {
             const result = await this._updateCustomerService.execute(id, updateCustomerDTO);
             return response.status(200).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }

@@ -22,7 +22,7 @@ export class PurchaseTransactionController {
             const result = await this._purchaseTransactionService.execute(id, items);
             return response.status(201).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }

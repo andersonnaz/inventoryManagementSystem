@@ -15,7 +15,7 @@ export class FindTransactionController {
             const result = await this._findTransactionService.execute(id);
             return response.status(200).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }

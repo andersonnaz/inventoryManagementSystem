@@ -17,7 +17,7 @@ export class CreateItemController {
             const result = await this._createItemService.execute(createItemDTO);
             return response.status(201).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }

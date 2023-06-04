@@ -15,7 +15,7 @@ export class FindSupplierController {
             const result = await this._findSupplierService.execute(id);
             return response.status(200).json(result);
         } catch (error) {
-            return response.status(200).json({message: error.message});
+            return response.status(200).json(error);
         }
     }
 }

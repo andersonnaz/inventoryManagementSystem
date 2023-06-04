@@ -14,7 +14,7 @@ export class ListBySaleTransactionController {
             const result = await this._listBySaleTransactionService.execute();
             return response.status(200).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }

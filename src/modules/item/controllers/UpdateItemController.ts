@@ -17,7 +17,7 @@ export class UpdateItemController {
             const result = await this._updateItemService.execute(id, updateItemDTO);
             return response.status(200).json(result);
         } catch (error) {
-            return response.status(404).json({message: error.message});
+            return response.status(404).json(error);
         }
     }
 }
