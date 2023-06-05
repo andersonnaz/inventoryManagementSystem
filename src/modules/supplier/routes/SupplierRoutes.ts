@@ -18,7 +18,7 @@ supplierRouter.get('/', listSupplierController.list);
 supplierRouter.post('/', createSupplierController.create);
 supplierRouter.get('/:id', findSupplierController.find);
 supplierRouter.delete('/:id', deleteSupplierController.delete);
-supplierRouter.put('/', updateSupplierController.update);
+supplierRouter.put('/:id', updateSupplierController.update);
 
 export default supplierRouter;
 
