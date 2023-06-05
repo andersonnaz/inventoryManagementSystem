@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 export class Item {
     private readonly _id: string;
     private readonly _name: string;
@@ -11,6 +12,7 @@ export class Item {
         this._name = name;
         this._category = category;
         this._supplier = supplier;
+        this._id = this.generateId();
     };
 
     public static create(name: string, category: string, supplier: string): Item {
@@ -30,6 +32,10 @@ export class Item {
             throw new Error('supplier invalid!');
         }
         return true;
+    }
+
+    private generateId(): string {
+        return uuid();
     }
 
     get id(): string {
