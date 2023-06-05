@@ -16,7 +16,7 @@ const updateCustomerController = new UpdateCustomerController();
 
 customersRouter.get('/', listCustomerController.list);
 customersRouter.post('/', createCustomerController.create);
-customersRouter.delete('/', deleteCustomerController.delete);
+customersRouter.delete('/:id', deleteCustomerController.delete);
 customersRouter.get('/:id', findCustomerController.find);
 customersRouter.put('/:id', updateCustomerController.update);
 
