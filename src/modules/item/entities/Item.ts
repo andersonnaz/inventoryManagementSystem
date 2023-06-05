@@ -14,6 +14,8 @@ export class Item {
         this._supplier = supplier;
         this._id = this.generateId();
         this._price = price;
+        this._quantity = 0;
+        this._validity = new Date();
     };
 
     public static create(name: string, category: string, supplier: string, price: number): Item {
