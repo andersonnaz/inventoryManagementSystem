@@ -13,12 +13,12 @@ export class CreateItemService {
         this._supplierRepository = supplierRepository;
     }
 
-    async execute({name, category, supplier}: CreateItemDTO): Promise<Item> {
+    async execute({name, category, supplier, price}: CreateItemDTO): Promise<Item> {
         const supplierFound = await this._supplierRepository.findOne(supplier);
         if(!supplierFound) {
             throw new Error('supplier not found!');
         }
-        const item = Item.create(name, category, supplierFound.name);
+        const item = Item.create(name, category, supplierFound.name, price);
         await this._itemRepository.save(item);
         return item;
     };
