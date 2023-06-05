@@ -8,20 +8,21 @@ export class Item {
     private _quantity: number;
     private _validity: Date;
 
-    private constructor(name: string, category: string, supplier: string){
+    private constructor(name: string, category: string, supplier: string, price: number){
         this._name = name;
         this._category = category;
         this._supplier = supplier;
         this._id = this.generateId();
+        this._price = price;
     };
 
-    public static create(name: string, category: string, supplier: string): Item {
-        this.validate(name, category, supplier);
-        const item = new Item(name, category, supplier);
+    public static create(name: string, category: string, supplier: string, price: number): Item {
+        this.validate(name, category, supplier, price);
+        const item = new Item(name, category, supplier, price);
         return item;
     }
 
-    private static validate(name: string, category: string, supplier: string): boolean {
+    private static validate(name: string, category: string, supplier: string, price: number): boolean {
         if(!name){
             throw new Error('name invalid!');
         }
@@ -30,6 +31,9 @@ export class Item {
         }
         if(!supplier){
             throw new Error('supplier invalid!');
+        }
+        if(!price){
+            throw new Error('price invalid!');
         }
         return true;
     }
