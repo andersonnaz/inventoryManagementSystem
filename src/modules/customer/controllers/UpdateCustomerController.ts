@@ -6,8 +6,8 @@ import { UpdateCustomerDTO } from "../dto/UpdateCustomerDTO";
 export class UpdateCustomerController {
     private readonly _updateCustomerService: UpdateCustomerService;
 
-    constructor(){
-        this._updateCustomerService = new UpdateCustomerService(CustomerInMemoryRepository);
+    constructor(updateCustomerService: UpdateCustomerService){
+        this._updateCustomerService = updateCustomerService;
     }
 
     update = async(request: Request, response: Response): Promise<Response> => {
