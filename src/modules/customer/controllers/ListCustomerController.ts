@@ -5,8 +5,8 @@ import { ListCustomerService } from "../services";
 export class ListCustomerController {
     private readonly _listCustomerService: ListCustomerService;
 
-    constructor(){
-        this._listCustomerService = new ListCustomerService(CustomerInMemoryRepository);
+    constructor(listCustomerService: ListCustomerService){
+        this._listCustomerService = listCustomerService;
     }
 
     list = async(request: Request, response: Response): Promise<Response> => {
