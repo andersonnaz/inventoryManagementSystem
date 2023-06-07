@@ -1,12 +1,11 @@
-import CustomerInMemoryRepository from "../repositories/CustomerInMemoryRepository";
 import { FindCustomerService } from "../services";
 import { Request, Response } from "express";
 
 export class FindCustomerController {
     private readonly _findCustomerService: FindCustomerService;
 
-    constructor(){
-        this._findCustomerService = new FindCustomerService(CustomerInMemoryRepository);
+    constructor(findCustomerService: FindCustomerService){
+        this._findCustomerService = findCustomerService;
     }
 
     find = async(request: Request, response: Response): Promise<Response> => {
