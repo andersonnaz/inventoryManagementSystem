@@ -9,8 +9,8 @@ export class CreateCustomerService {
         this._customerRepository = customerRepository;
     }
 
-    async execute({name, cpf, address, phone}: CreateCustomerDTO): Promise<Customer> {
-        const customer = Customer.create(name, cpf, address, phone);
+    async execute(data: CreateCustomerDTO): Promise<Customer> {
+        const customer = Customer.create(data.name, data.cpf, data.address, data.phone);
         await this._customerRepository.save(customer);
         return customer;
     }
