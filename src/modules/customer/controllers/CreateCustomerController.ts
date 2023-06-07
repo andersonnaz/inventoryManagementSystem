@@ -1,13 +1,12 @@
 import { Request, Response } from 'express';
 import { CreateCustomerService } from '../services';
-import CustomerInMemoryRepository from '../repositories/CustomerInMemoryRepository';
 import { CreateCustomerDTO } from '../dto/CreateCustomerDTO';
 
 export class CreateCustomerController {
     private readonly _createCustomerService: CreateCustomerService;
 
-    constructor(){
-        this._createCustomerService = new CreateCustomerService(CustomerInMemoryRepository);
+    constructor(createCustomerService: CreateCustomerService){
+        this._createCustomerService = createCustomerService;
     }
 
     create = async(request: Request, response: Response): Promise<Response> => {
