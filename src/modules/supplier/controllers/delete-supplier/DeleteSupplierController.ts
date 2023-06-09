@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import SupplierInMemoryRepository from "../repositories/SupplierInMemoryRepository";
-import { DeleteSupplierService } from "../services";
+import { DeleteSupplierService } from "../../services";
 
 export class DeleteSupplierController {
     private readonly _deleteSupplierService: DeleteSupplierService;
 
-    constructor(){
-        this._deleteSupplierService = new DeleteSupplierService(SupplierInMemoryRepository);
+    constructor(deleteSupplierService: DeleteSupplierService){
+        this._deleteSupplierService = deleteSupplierService;
     }
 
     delete = async(request: Request, response: Response): Promise<Response> => {
