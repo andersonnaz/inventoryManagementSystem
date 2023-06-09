@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import TransactionInMemoryRepository from "../repositories/TransactionInMemoryRepository";
-import { DeleteTransactionService } from "../services/DeleteTransactionService";
+import TransactionInMemoryRepository from "../../repositories/TransactionInMemoryRepository";
+import { DeleteTransactionService } from "../../services/DeleteTransactionService";
 
 export class DeleteTransactionController {
     private readonly _deleteTransactionService: DeleteTransactionService;
 
-    constructor(){
-        this._deleteTransactionService = new DeleteTransactionService(TransactionInMemoryRepository);
+    constructor(deleteTransactionService: DeleteTransactionService){
+        this._deleteTransactionService = deleteTransactionService;
     }
 
     delete = async(request: Request, response: Response): Promise<Response> => {
