@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import SupplierInMemoryRepository from "../repositories/SupplierInMemoryRepository";
-import { ListSupplierService } from "../services";
+import { ListSupplierService } from "../../services";
 
 export class ListSupplierController {
     private readonly _listSupplierService: ListSupplierService;
 
-    constructor(){
-        this._listSupplierService = new ListSupplierService(SupplierInMemoryRepository);
+    constructor(listSupplierService: ListSupplierService){
+        this._listSupplierService = listSupplierService;
     }
 
     list = async(request: Request, response: Response): Promise<Response> => {
