@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import SupplierInMemoryRepository from "../repositories/SupplierInMemoryRepository";
-import { FindSupplierService } from "../services";
+import { FindSupplierService } from "../../services";
 
 export class FindSupplierController {
     private readonly _findSupplierService: FindSupplierService;
 
-    constructor(){
-        this._findSupplierService = new FindSupplierService(SupplierInMemoryRepository);
+    constructor(findSupplierService: FindSupplierService){
+        this._findSupplierService = findSupplierService;
     }
 
     find = async(request: Request, response: Response): Promise<Response> => {
