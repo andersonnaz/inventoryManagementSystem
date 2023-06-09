@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import ItemInMemoryRepository from "../repositories/ItemInMemoryRepository";
-import { ListByCategoryService } from "../services";
+import { ListByCategoryService } from "../../services";
 
 export class ListItemByCategoryController {
     private readonly _listItemByCategoryService: ListByCategoryService;
 
-    constructor(){
-        this._listItemByCategoryService = new ListByCategoryService(ItemInMemoryRepository);
+    constructor(listItemByCategoryService: ListByCategoryService){
+        this._listItemByCategoryService = listItemByCategoryService;
     }
 
     listItemByCategory = async(request: Request, response: Response): Promise<Response> => {
