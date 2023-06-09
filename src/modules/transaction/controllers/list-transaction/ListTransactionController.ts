@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import TransactionInMemoryRepository from "../repositories/TransactionInMemoryRepository";
-import { ListTransactionService } from "../services";
+import TransactionInMemoryRepository from "../../repositories/TransactionInMemoryRepository";
+import { ListTransactionService } from "../../services";
 
 export class ListTransactionController {
     private readonly _listTransactionService: ListTransactionService;
 
-    constructor(){
-        this._listTransactionService = new ListTransactionService(TransactionInMemoryRepository);
+    constructor(listTransactionService: ListTransactionService){
+        this._listTransactionService = listTransactionService;
     }
 
     list = async(request: Request, response: Response): Promise<Response> => {
