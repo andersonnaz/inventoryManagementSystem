@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import TransactionInMemoryRepository from '../repositories/TransactionInMemoryRepository';
-import { FindTransactionService } from '../services/FindTransactionService';
+import TransactionInMemoryRepository from '../../repositories/TransactionInMemoryRepository';
+import { FindTransactionService } from '../../services/FindTransactionService';
 
 export class FindTransactionController {
     private readonly _findTransactionService: FindTransactionService;
 
-    constructor(){
-        this._findTransactionService = new FindTransactionService(TransactionInMemoryRepository);
+    constructor(findTransactionService: FindTransactionService){
+        this._findTransactionService = findTransactionService;
     }
 
     find = async(request: Request, response: Response): Promise<Response> => {
