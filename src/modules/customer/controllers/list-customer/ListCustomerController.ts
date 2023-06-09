@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import CustomerInMemoryRepository from "../repositories/CustomerInMemoryRepository";
-import { ListCustomerService } from "../services";
+import { ListCustomerService } from "../../services";
 
 export class ListCustomerController {
     private readonly _listCustomerService: ListCustomerService;
