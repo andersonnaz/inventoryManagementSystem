@@ -1,22 +1,15 @@
 import { Router } from "express";
-import { 
-    CreateItemController,
-    DeleteItemController,
-    FindItemController,
-    ListItemByCategoryController,
-    ListItemBySupplierController,
-    ListItemController,
-    UpdateItemController
+import {
+    createItemController,
+    deleteItemController,
+    findItemController,
+    listItemController,
+    listItemByCategoryController,
+    listItemBySupplierController,
+    updateItemController
 } from '../controllers';
 
 const itemsRouter = Router();
-const createItemController = new CreateItemController();
-const deleteItemController = new DeleteItemController();
-const findItemController = new FindItemController();
-const listItemController = new ListItemController();
-const listItemByCategoryController = new ListItemByCategoryController();
-const listItemBySupplierController = new ListItemBySupplierController();
-const updateItemController = new UpdateItemController();
 
 itemsRouter.get('/', listItemController.list);
 itemsRouter.post('/', createItemController.create);
