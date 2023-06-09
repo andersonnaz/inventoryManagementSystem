@@ -1,18 +1,11 @@
-import ItemInMemoryRepository from '../../item/repositories/ItemInMemoryRepository';
-import TransactionInMemoryRepository from '../repositories/TransactionInMemoryRepository';
-import { PurchaseTransactionService } from '../services/PurchaseTransactionService';
-import SupplierInMemoryRepository from '../../supplier/repositories/SupplierInMemoryRepository';
+import { PurchaseTransactionService } from '../../services/PurchaseTransactionService';
 import { Request, Response } from 'express';
 
 export class PurchaseTransactionController {
     private readonly _purchaseTransactionService: PurchaseTransactionService;
 
-    constructor(){
-        this._purchaseTransactionService = new PurchaseTransactionService(
-            TransactionInMemoryRepository,
-            SupplierInMemoryRepository,
-            ItemInMemoryRepository
-        );
+    constructor(purchaseTransactionService: PurchaseTransactionService){
+        this._purchaseTransactionService = purchaseTransactionService;
     }
 
     purchase = async(request: Request, response: Response): Promise<Response> => {
