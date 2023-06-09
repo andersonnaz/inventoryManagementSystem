@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CreateCustomerService } from '../services';
+import { CreateCustomerService } from '../../services';
 
 export class CreateCustomerController {
     private readonly _createCustomerService: CreateCustomerService;
