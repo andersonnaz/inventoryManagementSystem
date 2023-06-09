@@ -1,18 +1,13 @@
 import { Router } from "express";
 import {
-    CreateSupplierController,
-    DeleteSupplierController,
-    FindSupplierController,
-    ListSupplierController,
-    UpdateSupplierController
+    createSupplierController,
+    deleteSupplierController,
+    findSupplierController,
+    listSupplierController,
+    updateSupplierController
 } from '../controllers';
 
 const supplierRouter = Router();
-const createSupplierController = new CreateSupplierController();
-const deleteSupplierController = new DeleteSupplierController();
-const findSupplierController = new FindSupplierController();
-const listSupplierController = new ListSupplierController();
-const updateSupplierController = new UpdateSupplierController();
 
 supplierRouter.get('/', listSupplierController.list);
 supplierRouter.post('/', createSupplierController.create);
