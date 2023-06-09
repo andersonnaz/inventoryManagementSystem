@@ -5,7 +5,7 @@ import {
     findCustomerController,
     listCustomerController,
     updateCustomerController
- } from "../factories";
+ } from "../controllers";
 
 const customersRouter = Router();
 
