@@ -1,4 +1,4 @@
-import { FindCustomerService } from "../services";
+import { FindCustomerService } from "../../services";
 import { Request, Response } from "express";
 
 export class FindCustomerController {
