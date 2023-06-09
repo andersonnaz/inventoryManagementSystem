@@ -1,13 +1,12 @@
 import { Request, Response } from 'express';
-import { CreateSupplierService } from '../services';
-import SupplierInMemoryRepository from '../repositories/SupplierInMemoryRepository';
-import { CreateSupplierDTO } from '../dto/CreateSupplierDTO';
+import { CreateSupplierService } from '../../services';
+import { CreateSupplierDTO } from '../../dto/CreateSupplierDTO';
 
 export class CreateSupplierController {
     private readonly _createSupplierService: CreateSupplierService;
 
-    constructor(){
-        this._createSupplierService = new CreateSupplierService(SupplierInMemoryRepository);
+    constructor(createSupplierService: CreateSupplierService){
+        this._createSupplierService = createSupplierService;
     }
 
     create = async(request: Request, response: Response): Promise<Response> => {
