@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { DeleteCustomerService } from "../services";
+import { DeleteCustomerService } from "../../services";
 
 export class DeleteCustomerController {
     private readonly _deleteCustomerService: DeleteCustomerService;
