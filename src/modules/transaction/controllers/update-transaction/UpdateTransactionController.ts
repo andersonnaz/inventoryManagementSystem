@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import TransactionInMemoryRepository from "../repositories/TransactionInMemoryRepository";
-import { UpdateTransactionService } from "../services";
-import { UpdateTransactionDTO } from '../dto/UpdateTransactionDTO';
+import TransactionInMemoryRepository from "../../repositories/TransactionInMemoryRepository";
+import { UpdateTransactionService } from "../../services";
+import { UpdateTransactionDTO } from '../../dto/UpdateTransactionDTO';
 
 export class UpdateTransactionController {
     private readonly _updateTransactionService: UpdateTransactionService;
 
-    constructor(){
-        this._updateTransactionService = new UpdateTransactionService(TransactionInMemoryRepository);
+    constructor(updateTransactionService: UpdateTransactionService){
+        this._updateTransactionService = updateTransactionService;
     }
 
     update = async(request: Request, response: Response): Promise<Response> => {
