@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
-import ItemInMemoryRepository from "../repositories/ItemInMemoryRepository";
-import { UpdateItemService } from "../services";
-import { UpdateItemDTO } from '../dto/UpdateItemDTO';
+import { UpdateItemService } from "../../services";
+import { UpdateItemDTO } from '../../dto/UpdateItemDTO';
 
 export class UpdateItemController {
     private readonly _updateItemService: UpdateItemService;
 
-    constructor(){
-        this._updateItemService = new UpdateItemService(ItemInMemoryRepository);
+    constructor(updateItemService: UpdateItemService){
+        this._updateItemService = updateItemService;
     }
 
     update = async(request: Request, response: Response): Promise<Response> => {
