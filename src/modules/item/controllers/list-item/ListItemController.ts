@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
-import ItemInMemoryRepository from "../repositories/ItemInMemoryRepository";
-import { ListItemService } from "../services";
+import { ListItemService } from "../../services";
 
 export class ListItemController {
     private readonly _listItemService: ListItemService;
 
-    constructor(){
-        this._listItemService = new ListItemService(ItemInMemoryRepository);
+    constructor(listItemService: ListItemService){
+        this._listItemService = listItemService;
     }
 
     list = async(request: Request, response: Response): Promise<Response> => {
