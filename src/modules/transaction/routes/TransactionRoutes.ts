@@ -6,8 +6,7 @@ import {
     listBySaleTransactionController,
     listTransactionController,
     purchaseTransactionController,
-    saleTransactionController,
-    updateTransactionController
+    saleTransactionController
 } from '../controllers';
 
 const transactionsRouter = Router();
@@ -19,6 +18,5 @@ transactionsRouter.post('/sale/:id', saleTransactionController.sale);
 transactionsRouter.post('/purchase/:id', purchaseTransactionController.purchase);
 transactionsRouter.get('/:id', findTransactionController.find);
 transactionsRouter.delete('/:id', deleteTransactionController.delete);
-transactionsRouter.put('/:id', updateTransactionController.update);
 
 export default transactionsRouter;

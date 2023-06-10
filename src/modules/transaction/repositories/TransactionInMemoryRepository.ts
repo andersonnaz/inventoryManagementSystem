@@ -3,9 +3,7 @@ import { Supplier } from "../../supplier/entities/Supplier";
 import { Transaction } from "../entities/Transaction";
 import { TransactionRepository } from "./TransactionRepository";
 
-type IUpdateTransaction = Partial<Transaction>;
-
-class TransactionInMemoryRepository implements TransactionRepository {
+class TransactionInMemoryRepository implements TransactionRepository{
     private _database: Transaction[] = [];
 
     save(transaction: Transaction) {
@@ -24,15 +22,6 @@ class TransactionInMemoryRepository implements TransactionRepository {
         if(!transaction){
             return undefined;
         }
-        return transaction;
-    }
-
-    update(id: string, updateTransaction: IUpdateTransaction): Transaction {
-        const transaction = this.findOne(id);
-        if(!transaction){
-            throw new Error('transaction not found!');
-        }
-        Object.assign(transaction, updateTransaction);
         return transaction;
     }
 
