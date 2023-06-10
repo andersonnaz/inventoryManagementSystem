@@ -1,4 +1,3 @@
-import { Supplier } from "../../supplier/entities/Supplier";
 import { Item } from "../entities/Item";
 import { ItemRepository } from "./ItemRepository";
 
