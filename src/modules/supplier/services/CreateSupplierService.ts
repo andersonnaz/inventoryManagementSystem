@@ -1,4 +1,3 @@
-import { Repository } from '../../../shared/database/Repository';
 import { Supplier } from '../entities/Supplier';
 import { CreateSupplierDTO } from '../dto/CreateSupplierDTO';
 import { SupplierRepository } from '../repositories/SupplierRepository';

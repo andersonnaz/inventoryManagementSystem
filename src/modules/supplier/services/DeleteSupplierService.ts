@@ -1,5 +1,3 @@
-import { Repository } from "../../../shared/database/Repository";
-import { Supplier } from "../entities/Supplier";
 import { SupplierRepository } from "../repositories/SupplierRepository";
 
 export class DeleteSupplierService {
