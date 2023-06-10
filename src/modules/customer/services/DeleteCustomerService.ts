@@ -1,10 +1,9 @@
-import { Repository } from "../../../shared/database/Repository";
-import { Customer } from "../entities/Customer";
+import { CustomerRepository } from "../repositories/CustomerRepository";
 
 export class DeleteCustomerService {
-    private readonly _customerRepository: Repository<Customer>;
+    private readonly _customerRepository: CustomerRepository;
 
-    constructor(customerRepository: Repository<Customer>){
+    constructor(customerRepository: CustomerRepository){
         this._customerRepository = customerRepository;
     }
 

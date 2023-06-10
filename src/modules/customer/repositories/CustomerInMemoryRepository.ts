@@ -1,11 +1,12 @@
-import { Repository } from "../../../shared/database/Repository";
 import { Customer } from "../entities/Customer";
+import { CustomerRepository } from "./CustomerRepository";
 
 type IUpdateCustomer = Partial<Customer>;
-class CustomerInMemoryRepository implements Repository<Customer> {
+class CustomerInMemoryRepository implements CustomerRepository {
+        
     private _database: Customer[] = [];
 
-    save(customer: Customer) {
+    save(customer: Customer): void {
         this._database.push(customer);
     }
 
@@ -33,7 +34,7 @@ class CustomerInMemoryRepository implements Repository<Customer> {
         return customer;
     }
 
-    delete(cpf: string) {
+    delete(cpf: string): void {
         const customers = this.list();
         const filteredCustomers = customers.filter((customer) => {
             return customer.cpf !== cpf;
