@@ -1,20 +1,19 @@
-import { Repository } from "../../../shared/database/Repository";
-import { Customer } from "../../customer/entities/Customer";
 import { Item } from "../../item/entities/Item";
 import { ItemRepository } from "../../item/repositories/ItemRepository";
 import { Transaction } from "../entities/Transaction";
-import { TransactionRepository } from "../repositories/TransactionRepository"
+import { TransactionRepository } from "../repositories/TransactionRepository";
+import { CustomerRepository } from '../../customer/repositories/CustomerRepository';
 
 const REGEX_VALIDATE_CPF = /([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})/;
 
 export class SaleTransactionService {
     private readonly _transactionRepository: TransactionRepository;
     private readonly _itemRepository: ItemRepository;
-    private readonly _customerRepository: Repository<Customer>;
+    private readonly _customerRepository: CustomerRepository;
 
     constructor(transactionRepository: TransactionRepository,
         itemRepository: ItemRepository,
-        customerRepository: Repository<Customer>
+        customerRepository: CustomerRepository
         ){
         this._transactionRepository = transactionRepository;
         this._itemRepository = itemRepository;
