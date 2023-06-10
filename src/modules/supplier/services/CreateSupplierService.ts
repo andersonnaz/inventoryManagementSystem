@@ -1,11 +1,12 @@
 import { Repository } from '../../../shared/database/Repository';
 import { Supplier } from '../entities/Supplier';
 import { CreateSupplierDTO } from '../dto/CreateSupplierDTO';
+import { SupplierRepository } from '../repositories/SupplierRepository';
 
 export class CreateSupplierService {
-    private readonly _supplierRepository: Repository<Supplier>;
+    private readonly _supplierRepository: SupplierRepository;
 
-    constructor(supplierRepository: Repository<Supplier>){
+    constructor(supplierRepository: SupplierRepository){
         this._supplierRepository = supplierRepository;
     }
 

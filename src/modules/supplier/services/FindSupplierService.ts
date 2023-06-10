@@ -1,10 +1,10 @@
-import { Repository } from "../../../shared/database/Repository";
 import { Supplier } from "../entities/Supplier";
+import { SupplierRepository } from "../repositories/SupplierRepository";
 
 export class FindSupplierService {
-    private readonly _supplierRepository: Repository<Supplier>;
+    private readonly _supplierRepository: SupplierRepository;
 
-    constructor(supplierRepository: Repository<Supplier>){
+    constructor(supplierRepository: SupplierRepository){
         this._supplierRepository = supplierRepository;
     }
 

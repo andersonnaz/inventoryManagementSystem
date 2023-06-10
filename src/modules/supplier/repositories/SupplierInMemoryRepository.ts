@@ -1,9 +1,10 @@
-import { Repository } from "../../../shared/database/Repository";
 import { Supplier } from "../entities/Supplier";
+import { SupplierRepository } from './SupplierRepository';
 
 type IUpdateSupplier = Partial<Supplier>;
 
-class SupplierInMemoryRepository implements Repository<Supplier>{
+class SupplierInMemoryRepository implements SupplierRepository {
+
     private _database: Supplier[] = [];
 
     save(supplier: Supplier) {

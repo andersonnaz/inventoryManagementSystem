@@ -1,14 +1,13 @@
 import { ItemRepository } from "../repositories/ItemRepository";
 import { Item } from '../../item/entities/Item';
-import { Supplier } from "../../supplier/entities/Supplier";
-import { Repository } from "../../../shared/database/Repository";
 import { CreateItemDTO } from "../dto/CreateItemDTO";
+import { SupplierRepository } from '../../supplier/repositories/SupplierRepository';
 
 export class CreateItemService {
     private readonly _itemRepository: ItemRepository;
-    private readonly _supplierRepository: Repository<Supplier>;
+    private readonly _supplierRepository: SupplierRepository;
 
-    constructor(itemRepository: ItemRepository, supplierRepository: Repository<Supplier>){
+    constructor(itemRepository: ItemRepository, supplierRepository: SupplierRepository){
         this._itemRepository = itemRepository;
         this._supplierRepository = supplierRepository;
     }
