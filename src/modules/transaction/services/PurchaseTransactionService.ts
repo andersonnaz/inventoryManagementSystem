@@ -1,19 +1,18 @@
-import { Repository } from "../../../shared/database/Repository";
 import { Item } from "../../item/entities/Item";
 import { ItemRepository } from "../../item/repositories/ItemRepository";
-import { Supplier } from "../../supplier/entities/Supplier";
 import { Transaction } from "../entities/Transaction";
 import { TransactionRepository } from "../repositories/TransactionRepository";
+import { SupplierRepository } from '../../supplier/repositories/SupplierRepository';
 
 const REGEX_VALIDATE_CNPJ = /^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/;
 
 export class PurchaseTransactionService {
     private readonly _transactionRepository: TransactionRepository;
-    private readonly _supplierRepository: Repository<Supplier>;
+    private readonly _supplierRepository: SupplierRepository;
     private readonly _itemRepository: ItemRepository;
 
     constructor(transactionRepository: TransactionRepository,
-        supplierRepository: Repository<Supplier>,
+        supplierRepository: SupplierRepository,
         itemRepository: ItemRepository
         ){
         this._transactionRepository = transactionRepository;
